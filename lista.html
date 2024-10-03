@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Profissão</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+
+      <script>
+
+        for(let i = 1;i<=localStorage.length;i++){
+
+            let pessoa = JSON.parse(localStorage.getItem(i));
+            let linha = document.createElement('tr');
+            let td_id = document.createElement('td');
+            let td_nome = document.createElement('td');
+            let td_idade = document.createElement('td');
+            let td_profissao = document.createElement('td');
+            let td_email = document.createElement('td');
+
+            td_id.textContent = i;  
+            td_nome.textContent = pessoa.nome;
+            td_idade.textContent = pessoa.idade;
+            td_profissao.textContent = pessoa.profissao;
+            td_email.textContent = pessoa.email;
+            
+            linha.appendChild(td_id);
+            linha.appendChild(td_nome);
+            linha.appendChild(td_idade);
+            linha.appendChild(td_profissao);
+            linha.appendChild(td_email);
+
+            let tabela = document.getElementById('tbody');
+            tabela.appendChild(linha);
+        }
+
+    </script>
+</body>
+</html>
